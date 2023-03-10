@@ -20,10 +20,13 @@ def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Welcome to the WhatsApp Web bot. Please scan the QR code to log in to WhatsApp Web.")
 
 def receive_message(update, context):
-    message = update.message.text
-    logging.info(f"Received message: {message}")
-    # Send the incoming message to the Telegram bot
-    bot.send_message(chat_id=CHAT_ID, text=message)
+    message = update.message
+    if message is not None:
+        text = message.text
+        logging.info(f"Received message: {text}")
+        # Send the incoming message to the Telegram bot
+        bot.send_message(chat_id=CHAT_ID, text=text)
+
 
 # Initialize Telegram bot
 bot = telegram.Bot(token=BOT_TOKEN)
