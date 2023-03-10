@@ -1,4 +1,0 @@
-requests
-logging
-python-telegram-bot
-selenium
