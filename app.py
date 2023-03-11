@@ -27,7 +27,7 @@ def receive_message(update, context):
 
 # Initialize Telegram bot
 bot = telegram.Bot(token=BOT_TOKEN)
-updater = Updater(BOT_TOKEN, use_context=True)
+updater = Updater(BOT_TOKEN)
 dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler("start", start))
 dispatcher.add_handler(MessageHandler(filters.text, receive_message))
