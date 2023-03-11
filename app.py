@@ -5,7 +5,7 @@ import os
 import time
 import logging
 import telegram
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters
 
 # Initialize logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -30,7 +30,7 @@ bot = telegram.Bot(token=BOT_TOKEN)
 updater = Updater(BOT_TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler("start", start))
-dispatcher.add_handler(MessageHandler(Filters.text, receive_message))
+dispatcher.add_handler(MessageHandler(filters.text, receive_message))
 updater.start_polling()
 
 # Define Chrome options to run Chrome in headless mode
